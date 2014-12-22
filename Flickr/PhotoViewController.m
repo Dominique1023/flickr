@@ -37,7 +37,6 @@
 }
 
 -(void)retrieveImage{
-
     id farm = [self.photo objectForKey:@"farm"];
     id server = [self.photo objectForKey:@"server"];
     id userID = [self.photo objectForKey:@"id"];
@@ -57,10 +56,13 @@
     NSLog(@"Tapped and Saved");
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
     [self.urlStrings addObject:self.urlString];
+
+    //setting the NSUserDefaults with the NSMutableArray that has one string
     [defaults setObject:self.urlStrings forKey:@"strings"];
 
-    NSLog(@"self.urlStrings %@", self.urlStrings); 
+    NSLog(@"self.urlStrings %@", self.urlStrings);
 
     [defaults synchronize];
 }
